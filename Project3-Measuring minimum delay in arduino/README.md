@@ -29,15 +29,17 @@
 
 ## Measure overhead
  - Remove the delay statements and upload the code
- - Measure pulse width. What is the minimum time that the signal is HIGH and LOW? this is the overhead.
+ - Measure pulse width. What is the minimum time that the signal is HIGH and LOW? this is the overhead. ~5 us
  - Take screenshots and add them to the README below.
- 
+ ![alt text](image-1.png)
 
 ## even shorter blink
 - delay() is limited to 1 ms. Find a function that delays 1 microsecond. 
- - Try different delays and measure the overhead.
+ - Try different delays and measure the overhead. 1us > 4us delay, 10us > 2us delay,20us > 3 us delay
  - Take screenshots and add them to the README below.
-
+![alt text](image-4.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
 ## Git
  - Commit the new README with your screenshots
  - push to your repo.
