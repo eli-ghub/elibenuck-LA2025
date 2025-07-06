@@ -29,4 +29,4 @@
 - pressure value: 100397.00 Pa
 - led blinks when: Button pressed and held
 - led is constant when: selecting input
-- buzzer plays when: menu in open
+- buzzer plays when: menu is open
