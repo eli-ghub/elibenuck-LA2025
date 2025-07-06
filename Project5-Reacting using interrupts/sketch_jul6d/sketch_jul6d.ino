@@ -12,19 +12,16 @@ void setup() {
 }
 
 void loop() {
-  buttonState = digitalRead(button); // Read the state of pin 2
-  
-  for (int i = 0; i< 10000; i++){
+  for (int i = 0; i < 10000; i++) {
     Serial.println("calculating...");
-}
-  if (buttonState == HIGH) {
+    buttonState = digitalRead(button); // Read the state of pin 2
 
-
-    
-    Serial.println("on!");
-    digitalWrite(led, HIGH); // Turn on the LED
-  } else {
-    Serial.println("off!");
-    digitalWrite(led, LOW);
+    if (buttonState == HIGH) {
+      Serial.println("on!");
+      digitalWrite(led, HIGH); // Turn on the LED
+    } else {
+      Serial.println("off!");
+      digitalWrite(led, LOW);
+    }
   }
 }
