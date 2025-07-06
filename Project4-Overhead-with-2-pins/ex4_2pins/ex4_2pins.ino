@@ -21,20 +21,35 @@
 
   https://docs.arduino.cc/built-in-examples/basics/Blink/
 */
-int mydelay = 100; // delay in microseconds
-int gled = 4;
+int mydelay = 1000; // delay in microseconds
+int gled1 = 13;
+int gled2 = 12;
+int x = 3;
+int y;
 
 // the setup function runs once when you press reset or power the board
 void setup() {
-  // initialize digital pin LED_BUILTIN as an output.
-  pinMode(gled, OUTPUT);
+  // initialize digital pins gled1 and gled2 as outputs.
+  pinMode(gled1, OUTPUT);
+  pinMode(gled2, OUTPUT);
 }
+
+
+
 
 // the loop function runs over and over again forever
 void loop() {
-  digitalWrite(gled, HIGH);  // turn the LED on (HIGH is the voltage level)
+  digitalWrite(gled1, HIGH);  // turn the LED on (HIGH is the voltage level)
+
+  //y = x+2;
+  digitalWrite(gled2, HIGH);  // turn the LED on (HIGH is the voltage level)
   delayMicroseconds(mydelay); // wait for the specified microseconds
-  digitalWrite(gled, LOW);   // turn the LED off by making the voltage LOW
+
+
+  digitalWrite(gled1, LOW);   // turn the LED off by making the voltage LOW
+
+  //y = x+2;
+  digitalWrite(gled2, LOW);   // turn the LED off by making the voltage LOW
   delayMicroseconds(mydelay); // wait for the specified microseconds
 }
 
