@@ -13,10 +13,18 @@ void setup() {
 
 void loop() {
   buttonState = digitalRead(button); // Read the state of pin 2
+  
+  for (int i = 0; i< 10000; i++){
+    Serial.println("calculating...");
+}
   if (buttonState == HIGH) {
+
+
     
+    Serial.println("on!");
     digitalWrite(led, HIGH); // Turn on the LED
   } else {
+    Serial.println("off!");
     digitalWrite(led, LOW);
   }
 }

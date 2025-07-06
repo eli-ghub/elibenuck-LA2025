@@ -10,6 +10,7 @@
  - read value from button pin. If button is pressed (how can you tell?) turn grove led on. If button is not pressed, turn it off
  - test that this works.
 
+
 ## Debug statements
 - use the Serial library to add debug statements to your code. View using Serial Monitor in Arduino IDE
 
@@ -22,7 +23,7 @@ for (int i = 0; i< 10000; i++){
 }
 ```
 - test if lighting led still works. Why or why not?
-answer here: __________
+answer here: _It doesn't work because the program is busy with the calculating_________
 
 ## Use interrupt to light led
 - Add code to create an interrupt pin (why can't it be the button pin?). Use a variable for this.
