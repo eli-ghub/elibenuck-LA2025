@@ -21,10 +21,11 @@
 
   https://docs.arduino.cc/built-in-examples/basics/Blink/
 */
-int mydelay=1000;
+int mydelay=1;
 int gled = 4;
 // the setup function runs once when you press reset or power the board
 void setup() {
+
   // initialize digital pin LED_BUILTIN as an output.
   pinMode(gled, OUTPUT);
 
