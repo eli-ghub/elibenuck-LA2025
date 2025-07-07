@@ -26,9 +26,11 @@ for (int i = 0; i< 10000; i++){
 answer here: _It doesn't work because the program is busy with the calculating_________
 
 ## Use interrupt to light led
-- Add code to create an interrupt pin (why can't it be the button pin?). Use a variable for this.
+- Add code to create an interrupt pin (why can't it be the button pin?= because the button pin is not available for interrupts). Use a variable for this.
 - Short the interrupt pin with the button pin
-- test. Does it work?
+- test. Does it work? yes :) 
+
+
 
 ## Exercises
  - commit and upload your code in this project folder.
