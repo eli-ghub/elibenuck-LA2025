@@ -13,7 +13,8 @@ void setup() {
 
 void loop() {
   for (int i = 0; i < 10000; i++) {
-    Serial.println("calculating...");
+    Serial.println("calculating...");}
+    
     buttonState = digitalRead(button); // Read the state of pin 2
 
     if (buttonState == HIGH) {
@@ -23,5 +24,5 @@ void loop() {
       Serial.println("off!");
       digitalWrite(led, LOW);
     }
-  }
+  
 }
