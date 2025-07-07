@@ -1,7 +1,7 @@
 int buttonPin = 2;
 int buttonLED = 6;
 int blinkLED = 4;
-volatile bool buttonPressed = false;
+volatile boolledOn = false;
 
 void setup() {
   pinMode(buttonPin, INPUT_PULLUP);
@@ -11,7 +11,7 @@ void setup() {
 }
 
 void buttonInterrupt() {
-  buttonPressed = true;
+ ledOn = true;
 }
 
 
@@ -22,7 +22,7 @@ void loop() {
 
 
   if (buttonPressed) {
-    buttonPressed = false;
+   ledOn = false;
     digitalWrite(blinkLED, LOW); // Toggle LED state
   }
 
