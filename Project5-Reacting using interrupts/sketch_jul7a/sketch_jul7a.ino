@@ -1,33 +1,29 @@
-int buttonPin = 6;       // Button connected to D6
-int interruptPin = 2;    // Interrupt pin connected to D2
-int led = 4;             // LED connected to D4
-int i;
-volatile bool interruptFlag = false; // Flag to signal interrupt
-
-void handleInterrupt() {
-    interruptFlag = true; // Set the flag when interrupt occurs
-}
+int buttonPin = 2;
+int buttonLED = 6;
+int blinkLED = 4;
+volatile bool buttonPressed = false;
 
 void setup() {
-    pinMode(buttonPin, INPUT); // Set button pin as input with pull-up resistor
-    pinMode(interruptPin, INPUT); // Set interrupt pin as input with internal pull-up resistor
-    pinMode(led, OUTPUT);              // Set LED pin as output
-    Serial.begin(9600);                // Start serial communication
-
-    // Attach interrupt to the interrupt pin
-    attachInterrupt(digitalPinToInterrupt(interruptPin), handleInterrupt, FALLING);
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(buttonLED, OUTPUT);
+  pinMode(blinkLED, OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(buttonPin), buttonInterrupt, CHANGE);
 }
+
+void buttonInterrupt() {
+  buttonPressed = true;
+}
+
+
 
 void loop() {
-    i = i+1;
-    Serial.println(i);
-    if (interruptFlag) {
-    interruptFlag = false; // Reset the flag
-        Serial.println("Interrupt triggered!");
-        digitalWrite(led, HIGH); // Turn on the LED
-        delay(500);             // Keep LED on for a short time
-    } else{digitalWrite(led, LOW); }
+  digitalWrite(blinkLED, HIGH);
+
+
+
+  if (buttonPressed) {
+    buttonPressed = false;
+    digitalWrite(blinkLED, LOW); // Toggle LED state
+  }
+
 }
-
-
-
