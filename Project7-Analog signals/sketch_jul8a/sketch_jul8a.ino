@@ -1,6 +1,6 @@
 #include <MD_PWM.h>
 
-int PWM_FREQ = 50; // Set PWM frequency
+int PWM_FREQ = 300; // Set PWM frequency
 int rotaryPin = A0; // Rotary encoder connected to A0
 MD_PWM pwm[] = { MD_PWM(4) }; // Create an MD_PWM object for pin 4
 

@@ -26,11 +26,11 @@ The purpose of this project is to dim and increase the led light using the rotar
 - connect analog 2 in adalm (dark blue) to digital 7 in arduino
 - install Servo package if not already installed
 - initialize Servo package with pin 7
-- first check in adalm the range of the mapped values. What frequency is the Servo package using?
+- first check in adalm the range of the mapped values. What frequency is the Servo package using? 50Hz
 - connect to servo using D7 breakout (ground on the left on the side of the led). connect plus to servo
 - turn rotary to turn the servo
-- How does the range of the servo motor compare to the range of the rotary? Use the scope.
-- is the range of our server the same as the range of the package? change the range of values to the servo accordingly.
+- How does the range of the servo motor compare to the range of the rotary? Use the scope. the arduino is from 0-1023 and the servo from 0-180 
+- is the range of our server the same as the range of the package? -no (it stops early) change the range of values to the servo accordingly.
 
 ## Exercises
 
