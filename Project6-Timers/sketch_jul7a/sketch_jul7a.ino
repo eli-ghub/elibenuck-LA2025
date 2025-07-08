@@ -36,6 +36,6 @@ void turnOffLED() {
   MsTimer2::stop();
 }
 
-void loop() {
+void loop() {delay(1000);
   // Main loop can remain empty or handle other tasks
 }
