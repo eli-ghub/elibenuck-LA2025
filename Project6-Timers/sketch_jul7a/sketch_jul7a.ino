@@ -13,7 +13,7 @@ void setup() {
   attachInterrupt(digitalPinToInterrupt(buttonPin), buttonInterrupt, RISING);
 
   // Initialize MsTimer2 but don't start it yet
-  MsTimer2::set(5000, turnOffLED); // Set timer for 5 seconds (5000 ms)
+  MsTimer2::set(30, turnOffLED); // Set timer for 5 seconds (5000 ms)
 }
 
 void buttonInterrupt() {

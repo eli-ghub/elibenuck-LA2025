@@ -31,5 +31,6 @@ it does/
 
 
 - change the LED time ON from 5 seconds to 30 ms, measure in the scope the time the LED is ON. is it 30 ms? Why or why not?
-answer here: __________
+answer here: __it is 29ms__because there is a possible delay from the initial button press until the voltage reaches the amount to resister on the Adalm______
 paste a screen shot from the scope below:
+![alt text](image-2.png)
