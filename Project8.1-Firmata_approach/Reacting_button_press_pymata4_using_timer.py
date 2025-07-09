@@ -7,7 +7,6 @@ import time
 # Arduino setup
 LED_PIN = 4  # Pin for LED
 BUTTON_PIN = 2  # Pin for button
-
 class ArduinoApp:
     def __init__(self, master):
         self.master = master
@@ -21,6 +20,9 @@ class ArduinoApp:
         # GUI elements
         self.label = tk.Label(master, text="Button State: Not Pressed", font=("Arial", 14))
         self.label.pack(pady=10)
+        
+        self.led_label = tk.Label(master, text="LED State: OFF", font=("Arial", 14))
+        self.led_label.pack(pady=10)
         
         self.timer_label = tk.Label(master, text="Set Timer Interval (ms):", font=("Arial", 12))
         self.timer_label.pack(pady=5)
@@ -36,20 +38,22 @@ class ArduinoApp:
         self.button_pressed = False
 
     def button_callback(self, data):
-        if data[2] == 0:  # Button pressed
-            self.button_pressed = True
-            self.label.config(text="Button State: Not Pressed")
-            self.turn_on_led()  # Turn on the LED immediately
-        else:  # Button released
-            self.button_pressed = False
-            self.label.config(text="Button State: Pressed")
+            if data[2] == 1:  # Button pressed
+                self.button_pressed = True
+                self.label.config(text="Button State: Pressed")
+                self.turn_on_led()  # Turn on the LED immediately
+            else:  # Button released
+                self.button_pressed = False
+                self.label.config(text="Button State: Not Pressed")
 
     def turn_on_led(self):
         self.board.digital_write(LED_PIN, 1)
+        self.led_label.config(text="LED State: ON")  # Update LED state in GUI
         Timer(self.timer_interval, self.turn_off_led).start()
 
     def turn_off_led(self):
         self.board.digital_write(LED_PIN, 0)
+        self.led_label.config(text="LED State: OFF")  # Update LED state in GUI
 
     def set_timer(self):
         try:
