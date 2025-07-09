@@ -5,7 +5,7 @@ from threading import Timer
 import time
 
 # Arduino setup
-LED_PIN = 13  # Pin for LED
+LED_PIN = 4  # Pin for LED
 BUTTON_PIN = 2  # Pin for button
 
 class ArduinoApp:
@@ -39,7 +39,7 @@ class ArduinoApp:
         if data[2] == 0:  # Button pressed
             self.button_pressed = True
             self.label.config(text="Button State: Not Pressed")
-            self.turn_on_led()
+            self.turn_on_led()  # Turn on the LED immediately
         else:  # Button released
             self.button_pressed = False
             self.label.config(text="Button State: Pressed")
