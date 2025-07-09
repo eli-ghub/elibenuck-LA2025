@@ -38,11 +38,11 @@ class ArduinoApp:
     def button_callback(self, data):
         if data[2] == 0:  # Button pressed
             self.button_pressed = True
-            self.label.config(text="Button State: Pressed")
+            self.label.config(text="Button State: Not Pressed")
             self.turn_on_led()
         else:  # Button released
             self.button_pressed = False
-            self.label.config(text="Button State: Not Pressed")
+            self.label.config(text="Button State: Pressed")
 
     def turn_on_led(self):
         self.board.digital_write(LED_PIN, 1)
