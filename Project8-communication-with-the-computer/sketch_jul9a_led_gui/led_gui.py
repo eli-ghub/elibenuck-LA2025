@@ -1,21 +1,28 @@
 import serial
 import FreeSimpleGUI as sg
 import threading
+import time
 
 # Initialize serial communication
-arduino = serial.Serial('COM4', 9600, timeout=1)  # Replace 'COM3' with your Arduino's port
+arduino = serial.Serial('COM4', 9600, timeout=1)  # Replace 'COM4' with your Arduino's port
 
 # Function to continuously read from the serial port
 def read_from_serial(window):
+    current_status = ""  # Track the current status (LED ON/OFF)
     while True:
         if arduino.in_waiting > 0:
             data = arduino.readline().decode('utf-8').strip()
-            if data == "0":
-                window['output'].update("LED OFF")
+            if data.startswith("I received:"):
+                # Display the received message in the GUI
+                window['output'].update(data)
+                time.sleep(1)  # Display the message for 1 second
+                window['output'].update(current_status)  # Revert to the previous status
             elif data == "1":
-                window['output'].update("Button Pressed, LED ON")
-            elif data == "2":
-                window['output'].update("Button Released, LED OFF")
+                current_status = "LED ON"
+                window['output'].update(current_status)
+            elif data == "0":
+                current_status = "LED OFF"
+                window['output'].update(current_status)
 
 # GUI layout
 layout = [
