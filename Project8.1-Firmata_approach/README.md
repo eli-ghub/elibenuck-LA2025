@@ -43,4 +43,18 @@ wo![alt text](image-3.png)
 What are the advantages and disadvantages of using the pymata4 package?
 
 
-Answer: _____the pymata is easier to code but less acurate_____
+Answer: _____the pymata is easier to code but less acurate. according to chatgpt this is due to the overhead caused by running everthing from python_____
+
+"The Arduino code version (without Firmata) is more accurate in terms of timing. This is because:
+
+Direct Hardware Control:
+
+In the Arduino code version, the timing is handled directly by the microcontroller, which operates in real-time without the overhead of communication between the computer and the Arduino.
+Communication Overhead:
+
+In the Firmata version, there is a delay introduced by the serial communication between the Python script and the Arduino. This can cause slight inaccuracies in timing, especially for very short intervals.
+Python's Limitations:
+
+Python is not a real-time programming language, and its timing can be affected by the operating system's task scheduling, further reducing accuracy.
+Conclusion:
+The Arduino code version is more accurate because it eliminates communication delays and relies on the Arduino's real-time capabilities. The Firmata version is less accurate due to the overhead of serial communication and Python's non-real-time nature."
