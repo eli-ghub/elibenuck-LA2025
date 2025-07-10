@@ -32,7 +32,7 @@ class FanSpeedApp:
         self.stop_button = tk.Button(master, text="Stop Logging", command=self.stop_logging, font=("Arial", 12), state=tk.DISABLED)
         self.stop_button.pack(pady=10)
         
-        self.logging = False
+        self.logging = True
         self.log_file = open("fan_speed_log.csv", "w", newline="")
         self.csv_writer = csv.writer(self.log_file)
         self.csv_writer.writerow(["Timestamp", "Fan Speed (RPM)"])

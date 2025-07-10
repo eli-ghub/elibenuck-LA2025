@@ -19,7 +19,7 @@ void loop() {
   // put your main code here, to run repeatedly:
   // 3 axis
   Serial.print("x:"); 
-  val=Accelerometer.readX()
+  val=Accelerometer.readX();
   Serial.print(val);  // Read the X Value 
   
   val = map(val, 0, 1023, 0, 140);     // scale it for use with the servo (value between 0 and 180)
