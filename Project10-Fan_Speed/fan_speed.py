@@ -46,20 +46,25 @@ class FanSpeedApp:
             try:
                 if self.arduino.in_waiting > 0:
                     speed = self.arduino.readline().decode().strip()
+                    print(f"Received speed: {speed}")  # Debug: Print received data
                     if speed.isdigit():
                         self.speed_label.config(text=f"Fan Speed: {speed} RPM")
+                        print(f"GUI updated with speed: {speed}")  # Debug
                         if self.logging:
                             self.csv_writer.writerow([time.strftime("%Y-%m-%d %H:%M:%S"), speed])
+                            print(f"Logged speed: {speed}")  # Debug
             except Exception as e:
                 print(f"Error reading fan speed: {e}")
 
     def start_logging(self):
         self.logging = True
+        print("Logging started")  # Debug
         self.log_button.config(state=tk.DISABLED)
         self.stop_button.config(state=tk.NORMAL)
 
     def stop_logging(self):
         self.logging = False
+        print("Logging stopped")  # Debug
         self.log_button.config(state=tk.NORMAL)
         self.stop_button.config(state=tk.DISABLED)
 

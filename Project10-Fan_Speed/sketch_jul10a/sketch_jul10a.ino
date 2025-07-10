@@ -3,7 +3,7 @@ const int lightSensorPin = A6; // Analog pin for light sensor
 const int rotarySensorPin = A0; // Analog pin for rotary angle sensor
 unsigned long lastTime = 0; // Last time RPM was calculated
 int fanSpeed = 0;           // Fan speed in RPM
-int lightThreshold = 500;   // Threshold for detecting fan blade (adjust based on your setup)
+int lightThreshold = 350;   // Threshold for detecting fan blade (adjust based on your setup)
 volatile int bladeCount = 0; // Count of fan blade passes
 
 void setup() {
@@ -21,18 +21,11 @@ void loop() {
 
   // Measure fan speed using the light sensor
   int lightValue = analogRead(lightSensorPin);
+  //Serial.println(lightValue);
   if (lightValue < lightThreshold) { // Detect fan blade passing
     bladeCount++;
     delay(10); // Debounce to avoid multiple counts for the same blade
+    Serial.println(bladeCount);
   }
 
-  // Calculate RPM every second
-  if (millis() - lastTime >= 1000) {
-    fanSpeed = (bladeCount * 60) / 2; // Calculate RPM (2 blades per revolution)
-    bladeCount = 0; // Reset blade count
-    lastTime = millis();
-
-    // Send RPM to the computer
-    Serial.println(fanSpeed);
-  }
 }
